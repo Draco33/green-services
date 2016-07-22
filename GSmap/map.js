@@ -51,8 +51,8 @@ var users = [{
 ];
 
 //Angular App Module and Controller
-angular.module('mapsApp', [])
-  .controller('MapCtrl', function($scope) {
+angular.module('GS.map', [])
+  .controller('MapController', function($scope) {
 
     var mapOptions = {
       zoom: 15,
@@ -115,7 +115,6 @@ angular.module('mapsApp', [])
 
     // take user location from the device
     if (navigator.geolocation) {
-          alert('your location is under process');
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
@@ -132,7 +131,8 @@ angular.module('mapsApp', [])
           // Browser doesn't support Geolocation
           alert('your browser dos not support the geolocation');
         }
-//------------------
+
+
 
       
       // calculate if the new user's location inside one service provider if so return the name of the service provider else sorry
@@ -153,4 +153,5 @@ angular.module('mapsApp', [])
             console.log('Our service circle is growing up, come and try later, Sorry.');
         
       }
+
   });

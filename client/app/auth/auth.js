@@ -3,14 +3,14 @@
 // in our signup/signin forms using the injected Auth service
 angular.module('GS.auth', [])
 
-.controller('AuthController', function ($scope, $window, $location) {
+.controller('AuthController', function ($scope, $window, $location, Auth) {
   $scope.user = {};
 
   $scope.signinUser = function () {
     Auth.signinUser($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
-        $location.path('/Users');
+        $window.localStorage.setItem('com.GSuser', token);
+        $location.path('/user');
       })
       .catch(function (error) {
         console.error(error);
@@ -20,8 +20,8 @@ angular.module('GS.auth', [])
    $scope.signinServiceProvider = function () {
     Auth.signinServiceProvider($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
-        $location.path('/serviceprovider');
+        $window.localStorage.setItem('com.GSprovider', token);
+        $location.path('/serviceProvider');
       })
       .catch(function (error) {
         console.error(error);
@@ -31,8 +31,8 @@ angular.module('GS.auth', [])
   $scope.signupUser = function () {
     Auth.signupUser($scope.user)
       .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
-        $location.path('/Users');
+        $window.localStorage.setItem('com.GSuser', token);
+        $location.path('/user');
       })
       .catch(function (error) {
         console.error(error);
@@ -40,13 +40,27 @@ angular.module('GS.auth', [])
   };
 
     $scope.signupServiceProvider = function () {
-    Auth.signupServiceProvider($scope.user)
-      .then(function (token) {
-        $window.localStorage.setItem('com.shortly', token);
-        $location.path('/Users');
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+       if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            $scope.user.center = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+          }); 
+        } else {
+          // Browser doesn't support Geolocation
+          alert('your browser dos not support the geolocation');
+        }
+        setTimeout(function () {
+          Auth.signupServiceProvider($scope.user)
+          .then(function (token) {
+            $window.localStorage.setItem('com.GSprovider', token);
+            $location.path('/serviceProvider');
+          })
+          .catch(function (error) {
+            console.error(error);
+          });
+        }, 3000)
+      
   };
 });

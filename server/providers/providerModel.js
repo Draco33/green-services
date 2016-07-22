@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var SALT_WORK_FACTOR = 10;
 
-var UserSchema = new mongoose.Schema({
+
+var ProviderSchema = new mongoose.Schema({
   username: {
     type: String,
-    required: true,
-    unique: true
+    required: true
   },
   password: {
     type: String,
@@ -15,6 +15,14 @@ var UserSchema = new mongoose.Schema({
   },
   fullName: {
     type: String,
+    required: true
+  },
+  serviceType: {
+    type: String,
+    required: true
+  },
+  price: {
+    type: Number,
     required: true
   },
   phoneNumber: {
@@ -25,10 +33,12 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  salt: String
+  center: Object,
+  radius: Number
 });
 
-UserSchema.methods.comparePasswords = function (candidatePassword) {
+
+ProviderSchema.methods.comparePasswords = function (candidatePassword) {
   var savedPassword = this.password;
   return Q.Promise(function (resolve, reject) {
     bcrypt.compare(candidatePassword, savedPassword, function (err, isMatch) {
@@ -41,7 +51,7 @@ UserSchema.methods.comparePasswords = function (candidatePassword) {
   });
 };
 
-UserSchema.pre('save', function (next) {
+ProviderSchema.pre('save', function (next) {
   var user = this;
 
   // only hash the password if it has been modified (or is new)
@@ -69,4 +79,4 @@ UserSchema.pre('save', function (next) {
   });
 });
 
-module.exports = mongoose.model('users', UserSchema);
+module.exports = mongoose.model('providers', ProviderSchema);
