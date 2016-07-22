@@ -7,6 +7,9 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
     <script   src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+    <script
+      src="http://maps.googleapis.com/maps/api/js?libraries=geometry&key=AIzaSyATwz-5JuqDmx4C3_sdm6DR0l9OQYGVyps"></script>
   </head>
   <body>
     <div class="container-fluid">
@@ -18,16 +21,12 @@
           <li><a href="#/signinAsUser" data-toggle='tab'>User</a></li>
           <li><a href="#/signinAsserviceProvider" data-toggle='tab'>Provider</a></li>
         </ul>
-        <div class="container">
-          <div class="col-sm-5 col-md-5 col-lg-5"></div>
-            <div class="login-form tab-content col-sm-7 col-md-7 col-lg-7" ng-view>
-                
-            </div>
-        </div>
+        <div class="container" ng-view>
+          
       </div>
     </div>
     
-
+    
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
 

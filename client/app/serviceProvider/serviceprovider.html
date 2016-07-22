@@ -1,16 +1,64 @@
-<table class="table table-hover">
+<!-- <table class="table table-hover">
 	<tr>
 		<th>Name</th>
 		<th>Phone Number</th>
 		<th>Address</th>
 		<th>Quantity</th>
+		<th>Order Date</th>
+		<th>Total Price</th>
 		<th></th>
 	</tr>
 	<tr ng-repeat="order in data.orders" onclick="location()">
-		<td>{{order.fullname}}</td>
+		<td>{{order.fullName}}</td>
 		<td>{{order.phoneNumber}}</td>
 		<td>{{order.address}}</td>
-		<td>{{order.quentity}}</td>
-		<td><a ng-click="delete($index)">delivered</a></td>
+		<td>{{order.quantity}}</td>
+		<td>{{order.orderDate}}</td>
+		<td>{{order.totalPrice}}</td>
+		<td><a ng-click="delivered($index)">delivered</a></td>
+	</tr>
+</table> -->
+<div >
+    <div id="map"></div>
+    <div id="class" >
+    <div id="userLocation">
+      <h1>your location is:</h1>
+      <input type="text" id="lat">
+      <input type="text" id="lng">
+    </div>
+   <table class="table table-hover">
+	<tr>
+		<th>Name</th>
+		<th>Phone Number</th>
+		<th>Address</th>
+		<th>Quantity</th>
+		<th>Order Date</th>
+		<th>Total Price</th>
+		<th></th>
+	</tr>
+	<tr ng-repeat="order in data.orders" onclick="location()">
+		<td>{{order.fullName}}</td>
+		<td>{{order.phoneNumber}}</td>
+		<td>{{order.address}}</td>
+		<td>{{order.quantity}}</td>
+		<td>{{order.orderDate}}</td>
+		<td>{{order.totalPrice}}</td>
+		<td><a ng-click="delivered($index)">delivered</a></td>
 	</tr>
 </table>
+<!-- <table >
+  <tr>
+    <th>User</th>
+    <th>Address</th>
+    <th>Phone</th>
+  </tr>
+  <tr ng-repeat="marker in markers | orderBy : 'createdAt'">
+    <td><a href="#" ng-click="openInfoWindow($event, marker)">{{marker.user}}</a></td>
+    <td><a href="#" ng-click="openInfoWindow($event, marker)">{{marker.address}}</a></td>
+    <td><a href="#" ng-click="openInfoWindow($event, marker)">{{marker.phone }}</a></td>
+  </tr>
+  
+</table>
+ -->
+    </div>
+  </div>

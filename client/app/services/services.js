@@ -6,7 +6,7 @@ angular.module('GS.services', [])
   var addOneOrder = function (order) {
     return $http({
       method: 'POST',
-      url: '/api/orders',
+      url: '/api/order',
       data: JSON.stringify(order)
     })
     .then(function (resp) {
@@ -21,14 +21,14 @@ return {
   var getAllOrders = function(){
     return $http({
       method:'GET',
-      url:'/api/services'
+      url:'/api/orders'
     })
   }
   var delivered = function (order_id) {
     console.log(order_id)
     return $http({
       method: 'POST',
-      url: '/api/deliverd',
+      url: '/api/delivered',
       data: JSON.stringify(order_id)
     })
     .then(function (resp) {
@@ -73,7 +73,7 @@ return {
   var signupUser = function (user) {
     return $http({
       method: 'POST',
-      url: '/api/users/signupUsres',
+      url: '/api/users/signupUsers',
       data: user
     })
     .then(function (resp) {
@@ -91,13 +91,20 @@ return {
     });
   };
 
-  var isAuth = function () {
-    return !!$window.localStorage.getItem('com.shortly');
+  var isAuthuser = function () {
+    return !!$window.localStorage.getItem('com.GSuser');
+  };
+  var isAuthprovider = function () {
+    return !!$window.localStorage.getItem('com.GSprovider');
   };
 
-  var signout = function () {
-    $window.localStorage.removeItem('com.shortly');
-    $location.path('/signin');
+  var signoutUser = function () {
+    $window.localStorage.removeItem('com.GSuser');
+    $location.path('/');
+  };
+  var signoutProvider = function () {
+    $window.localStorage.removeItem('com.GSuser');
+    $location.path('/');
   };
 
 
@@ -106,7 +113,9 @@ return {
     signupUser: signupUser,
     signinServiceProvider: signinServiceProvider,
     signupServiceProvider: signupServiceProvider,
-    isAuth: isAuth,
-    signout: signout
+    isAuthuser: isAuthuser,
+    isAuthprovider: isAuthprovider,
+    signoutUser: signoutUser,
+    signoutProvider: signoutProvider
   };
 });

@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html >
+  <head>
+  	<meta charset="ISO-8859-1">
+  	<title>Insert title here</title>
+  	<link rel="stylesheet" href="map.css">
+  	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+  	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyATwz-5JuqDmx4C3_sdm6DR0l9OQYGVyps&libraries=geometry"></script>
+    <script type="text/javascript" src="map.js"></script>
+  </head>
+  <body>
+    <div ng-app="mapsApp" ng-controller="MapCtrl">
+      <div id="map"></div>
+      <div id="class" >
+      <div id="userLocation">
+        <h1>your location is:</h1>
+        <input type="text" id="lat">
+        <input type="text" id="lng">
+        <button ng-click="userInSerProArea()" >Service providers</button>
+      </div>
+  <table >
+    <tr>
+      <th>User</th>
+      <th>Address</th>
+      <th>Phone</th>
+    </tr>
+    <tr ng-repeat="marker in markers | orderBy : 'createdAt'">
+      <td><a href="#" ng-click="openInfoWindow($event, marker)">{{marker.user}}</a></td>
+      <td><a href="#" ng-click="openInfoWindow($event, marker)">{{marker.address}}</a></td>
+      <td><a href="#" ng-click="openInfoWindow($event, marker)">{{marker.phone }}</a></td>
+    </tr>
+  </table>
+      </div>
+    </div>
+  </body>
+</html>
+>>>>>>> e725b3856bb8ec333e1f6a290ad01ac37fe78dd8
