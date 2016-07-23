@@ -16,9 +16,9 @@ so our application contain verious schemas
 ​
 Schemas:
 ​
-1-order schema which include the whole orders issued from verious users.
-2-User schema which has full information about each user signed up in our website.
-3-service provider schema which include information about special kind of users those users who presents the services.
+1. order schema which include the whole orders issued from verious users.
+2. User schema which has full information about each user signed up in our website.
+3. service provider schema which include information about special kind of users those users who presents the services.
 ​
 Database Connection:
 ​

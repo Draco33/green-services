@@ -9,7 +9,6 @@
 		<th>Address</th>
 		<th>Quantity</th>
 		<th>Order Date</th>
-		<th>Total Price</th>
 		<th></th>
 	</tr>
 	<tr ng-repeat="marker in markers" ng-click="openInfoWindow($event, marker)">
@@ -18,7 +17,6 @@
 		<td>{{marker.address}}</td>
 		<td>{{marker.quantity}}</td>
 		<td>{{marker.orderDate}}</td>
-		<td>{{marker.totalPrice}}</td>
 		<td><a ng-click="delivered($index)">delivered</a></td>
 	</tr>
 </table>

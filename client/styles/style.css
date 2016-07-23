@@ -4,44 +4,32 @@
 /*Map CSS*/
 #map {
   height: 500px;
-  width: 800px;
+  width: 1000px;
   margin: 10px auto;
 }
+#leftMap {
+  height: 500px;
+  width: 700px;
+  margin: 10px auto;
+}
+
 
 .infoWindowContent {
   font-size: 14px;
   border-top: 1px solid lightgreen;
   padding-top: 10px;
 }
-
-h2 {
-  margin-bottom: 0;
-  margin-top: 0;
-  color: green;
+.header {
+  height: 135px;
+  background-image: url("../assets/header3.png");
 }
-
-
-#class{
-  width: 800px;
-  display: block;
-  margin: 5px auto;
+.esh {
+  color: #fff;
+  font-family: "Courier New", Courier, monospace, serif;
 }
-
-
-/*Table css*/
-
-table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
+p {
+  color: #fff;
 }
-
-td, th {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
-}
-
-tr:nth-child(even) {
-    background-color: #dddddd;
+.hos {
+  font-family: "Courier New", Courier, monospace, serif;
 }

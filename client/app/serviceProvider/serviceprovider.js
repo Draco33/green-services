@@ -3,10 +3,12 @@ angular.module('GS.serviceProvider', [])
 .controller('serviceproviderController', function ($scope, $window, Services) {
   $scope.data={};
   $scope.markers = [];
+  ///this function called here in order to take the provider information and
   Services.getSPInfo($window.localStorage.getItem('com.GSprovider')).then(function (SP) {
     $scope.serviceType = SP.data.serviceType;
     $scope.center = SP.data.center;
     $scope.radius = SP.data.radius;
+     ////this to put a circle that determine the limits which covered by provider
     var serProvCircle = new google.maps.Circle({
       strokeColor: 'green',
       strokeOpacity: 0.8,
@@ -17,7 +19,7 @@ angular.module('GS.serviceProvider', [])
       center: {lat: $scope.center.lat, lng: $scope.center.lng },
       radius: $scope.radius
     });
-
+    ////this function for taking the information from the database for each order and put a marker for each order inside the map.
     Services.getAllOrders($scope.serviceType).then(function(data){
       $scope.data.orders=data.data;
       for (i = 0; i < data.data.length; i++) {
@@ -36,7 +38,7 @@ angular.module('GS.serviceProvider', [])
     }
   $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
     
-    
+  ////to change the delivered flag in the database to true which means the order arrived to the client successfuly  
   $scope.delivered = function(index){
   	console.log(index);
   	Services.delivered($scope.data.orders[index]._id);//order_id depend on database
