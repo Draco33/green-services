@@ -63,6 +63,7 @@ angular.module('GS', [
   // when it does change routes, we then look for the token in localstorage
   // and send that token to the server to see if it is a real user or hasn't expired
   // if it's not valid, we then redirect back to signin/signup
+  ////here we are using two checking statements because we have multi users with differant privilثges.
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
     if ($location.path() === "/user" && next.$$route && next.$$route.authenticate && !Auth.isAuthuser()) {
       $location.path('/signinAsUser');
