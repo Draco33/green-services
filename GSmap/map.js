@@ -65,7 +65,6 @@ angular.module('GS.map', [])
 
 // service provider radius--------
   for (var i =0; i<serProv.length; i++) {
-            // Add the circle for this city to the map.
             serProv.serProvCircle = new google.maps.Circle({
               strokeColor: serProv[i].strokeColor,
               strokeOpacity: 0.8,
