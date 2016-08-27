@@ -1,49 +1,64 @@
-# providers
-To run this application for users:
-npm install to install all dependances in package.json file.
-creating directory for database in terminal or CMD (windows) using mkdir command.
-running mongod --dbpath "database directory which created in the previous step"
-npm start it will start the listening on localhost port 8000.
-​
-To run this application for developers:
-​
-we used (mean) in our programming so mongoose database and express as server, angular for front end 
-so our application contain verious schemas 
-​
-Schemas:
-​
-1. order schema which include the whole orders issued from verious users.
-2. User schema which has full information about each user signed up in our website.
-3. service provider schema which include information about special kind of users those users who presents the services.
-​
-Database Connection:
-​
-inside the server.js file inside the server folder we are creating the connection with database.
-​
-Note: each schema which are mentioned above has two folder with two files one for creating the schema "model" and the other for creating the functions which deal with the schema "controller".
-​
-Server:
-​
-the server done using express so you can find the configuration for the server inside the route file which is inside the server folder and the listening inside the server file it is listening on port 8000.
-​
-each server route issues a specific function from database functions inside the controllers.
-​
-Front end:
-​
-each view has its own html file and controller we have signin view and the user view and service provider view.
-​
-app file:
-​
-each view above must asign to an appropriate controller so app.js file has the routeProvider feature which assign a controller for each view.
 
-Map documentation:
+# Providers
+A web service that provides online order interface to deliver water, gas and diesel to customers.
 
-1. when the user or the service provider sign up the function:
-    navigator.geolocation.getCurrentPosition()
-    will take the position of the user from the user device location .
-2. mapOptions: this is the configuration of the main map.
-3. Then create the map with this mapOptions.
-4. serProvCircle: to create service provider circle on the map based on the location and radius of the service provider. 
-5. marker: create the dots on the main map by taking users coordinates from the user order.
-6. infoWindow: to display details of the order in the marker once the user click on the order or on the marker itself on the map.
-7. userInSerProArea function calculate if the new user's location inside one service provider if so return the name of the service provider.
+## Special features
+
+* Create user service provider accounts
+* User and Service Provider profiles.
+* Map view of registered orders location and service provider location.
+
+## General Use
+* Visit the home page and signup for an account as user or service provider.
+* Once your account is created you can visit your profile and more details.
+* once your profile created as user you can make order from our providers.
+* once your profile created as service provider you can see the customer orders location and information.
+
+## Meet The Engineers
+Product Owner: Aws Ahmad
+Scrum Master: Hadeel Khawaldeh
+Development Engineer: Eshraq Albakri, Hussam Eddein Alhendi.
+
+## Database
+This project uses Mongo DB, therefore, mongo must be installed on your PC, follow the instructions [here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/) for OS
+
+## Start the app
+After cloning the project into your local do from the root repository
+* ```npm install```   - to install dependancies
+* ```mongod```    - to start the database
+* ```npm start```   - to start the project and access the portal on local host
+
+## Dependancies
+### Server Side
+* Express 4.13.4
+* Forever 0.10.11
+* Bcrypt-nodejs 0.0.3
+* Bluebird 1.0.8
+* CORS 2.7.1
+* Body-parser 1.5.2
+* Jwt-simple 0.2.0
+* Mongoose 4.1.0
+* Morgan 1.7.0
+* nodemailer 2.5.0
+* nodemailer-smtp-transport 2.6.0
+* Q 1.4.1
+* Request 2.69.0
+* Socket.io 1.4.5
+* Underscore 1.8.3
+* Morgan 1.7.0
+
+### Client Side
+* Angularjs 1.4.3
+* Angular-route latest
+* Angular-touch latest
+* Angular-resource latest
+* Angular-bootsrtap 2.0.1
+* JSON3 3.3.0
+* es5-shim 4.0.0
+* Bootstrap 3.2.0
+* ui-Router latest
+* Bootstrap-btn-outline-rounded 0.0.3
+* Angular-animate latest
+* Components-font-awesome 4.3.0
+* Angular-snap latest
+* Underscore 1.8.3
